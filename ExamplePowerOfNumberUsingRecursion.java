@@ -1,37 +1,20 @@
-package com.topjavatutorial;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class ExamplePowerOfNumberUsingRecursion {
-
-  public static void main(String[] args) throws NumberFormatException,
-      IOException {
-
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    System.out.println("Enter a number");
-    int x = Integer.parseInt(br.readLine());
-    System.out.println("Enter the power for " + x);
-    int n = Integer.parseInt(br.readLine());
-
-    System.out.println(x + " raised to power " + n + " = " + power(x, n));
-  }
-
-  private static long power(int x, int n) {
-    long y = 0;
-
-    if (n == 0)
-      return 1;
-    else if (n == 1)
-      return x;
-    else {
-      y = power(x, n / 2);
-      y = y * y;
-      if (n % 2 == 0)
-        return y;
+  
+    // Function to calculate N raised to the power P
+    static int power(int N, int P)
+    {
+        if (P == 0)
+            return 1;
+        else
+            return N * power(N, P - 1);
     }
-    return x * y;
-  }
-
+  
+    // Driver code
+    public static void main(String[] args)
+    {
+        int N = 2;
+        int P = 4;
+  
+        System.out.println(power(N, P));
+    }
 }
